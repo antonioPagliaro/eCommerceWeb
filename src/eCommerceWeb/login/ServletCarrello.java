@@ -50,9 +50,10 @@ public class ServletCarrello extends HttpServlet {
 
 		Enumeration<String> list=request.getParameterNames();
 		while (list.hasMoreElements()) {
-			if(list.nextElement().equals("add")) {
+		String param=list.nextElement();
+					
 				
-			
+			if(param.equals("add")) {
 
 
 			String code=request.getParameter("add");
@@ -71,7 +72,7 @@ public class ServletCarrello extends HttpServlet {
 			}
 			
 			
-			else if(list.nextElement().equals("rem")) {
+			if(param.equals("rem")) {
 
 			String code=request.getParameter("rem");
 			ProductList pl=(ProductList) context.getAttribute("productList");
