@@ -32,12 +32,6 @@
     <% for(Product q : pl.getProductList()){%>
 		<tr>
 
-			<td><h3><%=q.getCode()%></h3></td>
-			<td><h3><%=q.getPrice()%></h3></td>
-			<td><h3><%=q.getDescription()%></h3></td>
-			<td><h3><%=q.getcategory()%></h3></td>
-			<td><button onclick=<%cart.addProduct(q); %>>Aggiungi al Carrello</button></td>
-
 			<td><%=q.getCode()%></td>
 			<td><%=q.getPrice()%></td>
 			<td><%=q.getDescription()%></td>
