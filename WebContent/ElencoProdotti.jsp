@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Elenco Prodotti</title>
 </head>
-<body>
+<body BACKGROUND="https://st2.depositphotos.com/2082539/11583/i/950/depositphotos_115836148-stock-photo-fly-on-a-wooden-board.jpg" TEXT="white">
 <h1><b>Elenco Prodotti</b></h1>
 	<%
     ServletContext context = request.getSession().getServletContext();
@@ -32,13 +32,13 @@
 	cart.addUser(u1); 
 	%>
 <table>
-    <tr><td>Codice</td><td>Prezzo</td><td>Descrizione</td><td>Categoria</td><td>Aggiungi al Carrello</td></tr>
+    <tr><td><h3>Codice</td></h3><td><h3>Prezzo</td></h3><td><h3>Descrizione</td></h3><td><h3>Categoria</td></h3><td><h3>Aggiungi al Carrello</td></h3></tr>
     <% for(Product q : pl.getProductList()){%>
 		<tr>
-			<td><%=q.getCode()%></td>
-			<td><%=q.getPrice()%></td>
-			<td><%=q.getDescription()%></td>
-			<td><%=q.getcategory()%></td>
+			<td><h3><%=q.getCode()%></h3></td>
+			<td><h3><%=q.getPrice()%></h3></td>
+			<td><h3><%=q.getDescription()%></h3></td>
+			<td><h3><%=q.getcategory()%></h3></td>
 			<td><button onclick=<%cart.addProduct(q); %>>Aggiungi al Carrello</button></td>
 			</tr>
 		<%}%> 
