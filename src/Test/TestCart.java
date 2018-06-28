@@ -3,7 +3,7 @@ import eCommerce.*;
 import eCommerceLogin.Login;
 import eCommerceLogin.LoginException;
 public class TestCart {
-	public static void main(String[] args) throws AccountOperationException, LoginException, DecreaseQuantityException, IncreaseQuantityException {
+	public static void main(String[] args) throws AccountOperationException, LoginException, DecreaseQuantityException, IncreaseQuantityException, NonDisponibileException {
 
 		//		
 		//		Login l = new Login();
@@ -64,7 +64,6 @@ public class TestCart {
 //		
 //		
 //
-		cart.addProduct(p);cart.addProduct(p);cart.addProduct(p);cart.addProduct(p);cart.addProduct(p);
 
 		System.out.println("Totale prezzo ="+cart.getTotalAmount());
 		System.out.println("Carrello utente "+u.getCart().getProductList());
