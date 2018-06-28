@@ -69,6 +69,26 @@ public class ServletCarrello extends HttpServlet {
 			RequestDispatcher dispatcher=request.getRequestDispatcher("Carrello.jsp");
 			dispatcher.forward(request, response);
 			}
+			
+			
+			else if(list.nextElement().equals("rem")) {
+
+			String code=request.getParameter("rem");
+			ProductList pl=(ProductList) context.getAttribute("productList");
+
+			Product p=pl.searchByCode(code);
+				try {
+					u.getCart().removePezzo(p);
+				} catch (DecreaseQuantityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+
+			RequestDispatcher dispatcher=request.getRequestDispatcher("Carrello.jsp");
+			dispatcher.forward(request, response);
+			}
+			
 
 		}
 
