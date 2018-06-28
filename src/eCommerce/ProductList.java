@@ -122,6 +122,15 @@ public class ProductList {
 			}
 		}
 	}
+	
+	public Product searchByCode(String code) {
+		Product temp = null;
+		for (Product p: productList) {
+			if(p.getCode().equals(code)) {
+				temp = p;
+			}
+		}return temp ;
+	}
 
 
 }

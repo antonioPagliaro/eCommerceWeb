@@ -25,6 +25,10 @@ public class TestProduct {
 		
 		System.out.println(lista.descendePrice());
 		
+		System.out.println("ricerca per codice");
+		
+		System.out.println(lista.searchByCode("12").toString());
+		
 		
 	}
 
