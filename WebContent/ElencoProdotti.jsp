@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Elenco Prodotti</title>
 </head>
-<body BACKGROUND="https://st2.depositphotos.com/2082539/11583/i/950/depositphotos_115836148-stock-photo-fly-on-a-wooden-board.jpg" TEXT="white">
 <body>
 <form action="ServletAggiungi" method="post">
 
