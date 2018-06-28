@@ -33,7 +33,7 @@
 			<td><%=q.getPrice()%></td>
 			<td><%=q.getDescription()%></td>
 			<td><%=q.getcategory()%></td>
-			<td><button onclick=<%cart.addProduct(q); %>>Aggiungi al Carrello</button></td>
+			 <td><button type="submit" name="code" value="<%=q.getCode()%>">Aggiungi al carrello</button></td>
 			</tr>
 		<%}%> 
 </table></form>
