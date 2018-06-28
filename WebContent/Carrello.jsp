@@ -13,7 +13,7 @@
 	<%
     ServletContext context = request.getSession().getServletContext();
 	User u = (User) context.getAttribute("user");%>
-	<h1><b>Carrello <%=u.getName()+" "+u.getSurname() %></b></h1>
+	<h1><b>Carrello di <%=u.getName()+" "+u.getSurname() %></b></h1>
 	<%ProductList pl=(ProductList) context.getAttribute("productList");
 	%>
 <table>
@@ -30,6 +30,10 @@
 			</tr>
 		<%}%> 
 </table>
+<p>Totale: <%=u.getCart().getTotalAmount() %> euro</p>
+</form>
+<form action="ServletPagamento" method="post">
+<button type="submit" name="pagamento">Effettua pagamento</button>
 </form>
 </body>
 </html>
