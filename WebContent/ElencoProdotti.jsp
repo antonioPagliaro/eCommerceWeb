@@ -8,40 +8,49 @@
 <title>Elenco Prodotti</title>
 </head>
 <body BACKGROUND="https://st2.depositphotos.com/2082539/11583/i/950/depositphotos_115836148-stock-photo-fly-on-a-wooden-board.jpg" TEXT="white">
+<body>
+<form action="ServletAggiungi" method="post">
+
 <h1><b>Elenco Prodotti</b></h1>
 	<%
     ServletContext context = request.getSession().getServletContext();
 	User u = (User) context.getAttribute("user");
 	
-	ProductList pl = new ProductList();
-	Product p = new Product("1", 1.0, "prodotto 1","scarpe",1);
-	Product p2 = new Product("2", 2.5, "prodotto 2","maglie",1);
-	Product p3 = new Product("3", 3.0, "prodotto 3","costumi",2);
+	ProductList pl=(ProductList) context.getAttribute("productList");
 
-	pl.addProduct(p);
-	pl.addProduct(p2);
-	pl.addProduct(p3);
-
-	User u1 = new User("toni", "pag", "toni", "pass");
+	//User u1 = new User("toni", "pag", "toni", "pass");
     Account account=new Account(18.0);
-	u1.setAccount(account);
+	u.setAccount(account);
 
-   Cart cart= u1.getCart();
-	u1.setProductList(pl);
+   Cart cart= u.getCart();
+	u.setProductList(pl);
 
-	cart.addUser(u1); 
+	cart.addUser(u); 
 	%>
 <table>
     <tr><td><h3>Codice</td></h3><td><h3>Prezzo</td></h3><td><h3>Descrizione</td></h3><td><h3>Categoria</td></h3><td><h3>Aggiungi al Carrello</td></h3></tr>
     <% for(Product q : pl.getProductList()){%>
 		<tr>
+
 			<td><h3><%=q.getCode()%></h3></td>
 			<td><h3><%=q.getPrice()%></h3></td>
 			<td><h3><%=q.getDescription()%></h3></td>
 			<td><h3><%=q.getcategory()%></h3></td>
 			<td><button onclick=<%cart.addProduct(q); %>>Aggiungi al Carrello</button></td>
+
+			<td><%=q.getCode()%></td>
+			<td><%=q.getPrice()%></td>
+			<td><%=q.getDescription()%></td>
+			<td><%=q.getcategory()%></td>
+			 <td><button type="submit" name="code" value="<%=q.getCode()%>">Aggiungi al carrello</button></td>
+
 			</tr>
 		<%}%> 
 </table>
+</form>
+<FONT SIZE="2">PEZZI NEL CARRELLO <%=u.getCart().getProductList().size() %></FONT><br>
+<form action="Carrello.jsp" method="post">
+<button type="submit" name="carrello">Vai al carrello</button>
+</form>
 </body>
 </html>

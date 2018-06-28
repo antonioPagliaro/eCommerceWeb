@@ -7,6 +7,7 @@ import eCommerce.AccountOperationException;
 import eCommerce.Cart;
 import eCommerce.Check;
 import eCommerce.DecreaseQuantityException;
+import eCommerce.NonDisponibileException;
 import eCommerce.PaymentWithCC;
 import eCommerce.PaymentWithCheck;
 import eCommerce.PaymentWithCheckException;
@@ -16,7 +17,7 @@ import eCommerce.Purchase;
 import eCommerce.User;
 
 public class TestPayment {
-	public static void main(String[] args) throws DecreaseQuantityException, AccountOperationException, PaymentWithCheckException {
+	public static void main(String[] args) throws DecreaseQuantityException, AccountOperationException, PaymentWithCheckException, NonDisponibileException {
 		User u = new User("toni", "pag", "toni", "pass");
 		System.out.println(u);
 		Product p = new Product("1", 1.0, "prodotto 1","scarpe",1);

@@ -3,7 +3,7 @@ import eCommerce.*;
 import eCommerceLogin.Login;
 import eCommerceLogin.LoginException;
 public class TestCart {
-	public static void main(String[] args) throws AccountOperationException, LoginException, DecreaseQuantityException, IncreaseQuantityException {
+	public static void main(String[] args) throws AccountOperationException, LoginException, DecreaseQuantityException, IncreaseQuantityException, NonDisponibileException {
 
 		//		
 		//		Login l = new Login();
@@ -32,41 +32,63 @@ public class TestCart {
 
 		Cart cart= u.getCart();
 		u.setProductList(pl);
-//
-//		Cart cart2=u.getCart();
-//		cart2.addUser(u);
 
 		cart.addUser(u);
 		cart.addProduct(p);
 		cart.addProduct(p2);
-//		cart2.addProduct(p3);
 
 
 
-//		System.out.println("Totale prezzo ="+cart.getTotalAmount());
-//		System.out.println("Carrello utente "+u.getCart().getProductList());
-//		//		
-//		System.out.println("elenco generale 2");
-//		//
-//		pl.showAll();
-//
-//
-//		cart.removeProduct(p);
-//		System.out.println("Carrello utente "+u.getCart().getProductList());
-//		pl.showAll();
-//
-//
-//		cart.addPezzo(p3);
-//		System.out.println("Carrello utente "+u.getCart().getProductList());
-//		pl.showAll();
-//
-//
-//
-//		cart.removePezzo(p3);
-//		System.out.println("Carrello utente "+u.getCart().getProductList());
-//		pl.showAll();
-//		
-//		
+		System.out.println("Totale prezzo ="+cart.getTotalAmount());
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		//		
+		System.out.println("elenco generale 2");
+		//
+		pl.showAll();
+
+
+		cart.removeProduct(p);
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		pl.showAll();
+
+
+		cart.addPezzo(p3);
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		pl.showAll();
+
+
+
+		cart.removePezzo(p3);
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		pl.showAll();
+		
+		
+
+
+		System.out.println("Totale prezzo ="+cart.getTotalAmount());
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		//		
+		System.out.println("elenco generale 2");
+		//
+		pl.showAll();
+
+
+		cart.removeProduct(p);
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		pl.showAll();
+
+
+		cart.addPezzo(p3);
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		pl.showAll();
+
+
+
+		cart.removePezzo(p3);
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		pl.showAll();
+		
+		
 		
 
 		//		System.out.println("Conto utente prima del pagamento:"+u.getAccount().getBalance());

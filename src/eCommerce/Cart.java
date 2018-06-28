@@ -36,13 +36,16 @@ public class Cart {
 
 
 
-	public void addProduct( Product product) throws DecreaseQuantityException {
+	public void addProduct( Product product) throws DecreaseQuantityException, NonDisponibileException {
+		System.out.println("Eseguito add product");
 		Product prodottoAggiunto=new Product(product.getCode(),product.getPrice(),product.getDescription(),product.getcategory(),1);
 		if(user.getProductList().isDisponibile(product)) {
 			user.getProductList().decreaseQuantity(product);
 			productList.add(prodottoAggiunto);
+			//todo : aggiungere un prodotto solo se non esiste ancora nel carrello, altrimenti incrementare la quantità
 
 		}
+		else throw new NonDisponibileException();
 	}
 
 	public void removeProduct(Product product) throws DecreaseQuantityException {

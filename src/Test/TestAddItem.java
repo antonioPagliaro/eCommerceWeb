@@ -3,12 +3,13 @@ package Test;
 import eCommerce.Cart;
 import eCommerce.DecreaseQuantityException;
 import eCommerce.IncreaseQuantityException;
+import eCommerce.NonDisponibileException;
 import eCommerce.Product;
 import eCommerce.ProductList;
 import eCommerce.User;
 
 public class TestAddItem {
-	public static void main(String[] args) throws IncreaseQuantityException, DecreaseQuantityException {
+	public static void main(String[] args) throws IncreaseQuantityException, DecreaseQuantityException, NonDisponibileException {
 		ProductList pl = new ProductList();
 		Product p = new Product("1", 1.0, "prodotto 1","scarpe",1);
 		Product p2 = new Product("2", 2.5, "prodotto 2","maglie",1);
