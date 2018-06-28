@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ServletAggiungi" method="post">
+<form action="ServletCarrello" method="post">
 
 	<%
     ServletContext context = request.getSession().getServletContext();
