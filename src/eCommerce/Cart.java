@@ -37,6 +37,7 @@ public class Cart {
 
 
 	public void addProduct( Product product) throws DecreaseQuantityException {
+		System.out.println("Eseguito add product");
 		Product prodottoAggiunto=new Product(product.getCode(),product.getPrice(),product.getDescription(),product.getcategory(),1);
 		if(user.getProductList().isDisponibile(product)) {
 			user.getProductList().decreaseQuantity(product);

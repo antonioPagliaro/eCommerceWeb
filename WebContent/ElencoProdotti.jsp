@@ -8,28 +8,22 @@
 <title>Elenco Prodotti</title>
 </head>
 <body>
+<form action="ServletAggiungi" method="post">
 <h1><b>Elenco Prodotti</b></h1>
 	<%
     ServletContext context = request.getSession().getServletContext();
 	User u = (User) context.getAttribute("user");
 	
-	ProductList pl = new ProductList();
-	Product p = new Product("1", 1.0, "prodotto 1","scarpe",1);
-	Product p2 = new Product("2", 2.5, "prodotto 2","maglie",1);
-	Product p3 = new Product("3", 3.0, "prodotto 3","costumi",2);
+	ProductList pl=(ProductList) context.getAttribute("productList");
 
-	pl.addProduct(p);
-	pl.addProduct(p2);
-	pl.addProduct(p3);
-
-	User u1 = new User("toni", "pag", "toni", "pass");
+	//User u1 = new User("toni", "pag", "toni", "pass");
     Account account=new Account(18.0);
-	u1.setAccount(account);
+	u.setAccount(account);
 
-   Cart cart= u1.getCart();
-	u1.setProductList(pl);
+   Cart cart= u.getCart();
+	u.setProductList(pl);
 
-	cart.addUser(u1); 
+	cart.addUser(u); 
 	%>
 <table>
     <tr><td>Codice</td><td>Prezzo</td><td>Descrizione</td><td>Categoria</td><td>Aggiungi al Carrello</td></tr>
@@ -42,6 +36,6 @@
 			<td><button onclick=<%cart.addProduct(q); %>>Aggiungi al Carrello</button></td>
 			</tr>
 		<%}%> 
-</table>
+</table></form>
 </body>
 </html>
