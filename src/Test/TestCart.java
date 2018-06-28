@@ -33,15 +33,15 @@ public class TestCart {
 		Cart cart= u.getCart();
 		u.setProductList(pl);
 
-		Cart cart2=u.getCart();
-		cart2.addUser(u);
+//		Cart cart2=u.getCart();
+//		cart2.addUser(u);
 
 		cart.addUser(u);
 		cart.addProduct(p);
 		cart.addProduct(p2);
-		cart2.addProduct(p3);
-
-
+//		cart2.addProduct(p3);
+//
+		cart.addProduct(p);cart.addProduct(p);cart.addProduct(p);cart.addProduct(p);cart.addProduct(p);
 
 		System.out.println("Totale prezzo ="+cart.getTotalAmount());
 		System.out.println("Carrello utente "+u.getCart().getProductList());
