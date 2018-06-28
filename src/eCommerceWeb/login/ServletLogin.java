@@ -3,12 +3,16 @@ package eCommerceWeb.login;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import eCommerce.Product;
+import eCommerce.ProductList;
 import eCommerce.User;
 import eCommerceLogin.Login;
 import eCommerceLogin.LoginException;
@@ -19,7 +23,7 @@ import eCommerceLogin.LoginException;
 @WebServlet("/ServletLogin")
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	ProductList pl = new ProductList();
     /**
      * Default constructor. 
      */
@@ -27,6 +31,17 @@ public class ServletLogin extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    public void init() {
+    	Product p = new Product("1", 1.0, "prodotto 1","scarpe",1);
+    	Product p2 = new Product("2", 2.5, "prodotto 2","maglie",1);
+    	Product p3 = new Product("3", 3.0, "prodotto 3","costumi",2);
+
+    	pl.addProduct(p);
+    	pl.addProduct(p2);
+    	pl.addProduct(p3);
+    	
+    }
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -38,18 +53,35 @@ public class ServletLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ServletContext context = request.getSession().getServletContext();
+		context.setAttribute("productList", pl);
+		
 		Login login=new Login();
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
+		User user=null;
 		try {
-		User u=	login.signIn(username,password);
-		response.setContentType("text/html");
-		PrintWriter pw= response.getWriter();
-		pw.print(u);
+		 user=	login.signIn(username,password);
+		context.setAttribute("user", user);
+//		response.setContentType("text/html");
+//		PrintWriter pw= response.getWriter();
+//		pw.print(user);
 		} catch (LoginException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		if(user!=null) {
+			
+			RequestDispatcher dispatcher=request.getRequestDispatcher("ElencoProdotti.jsp");
+			dispatcher.forward(request, response);
+			}
+		else{
+			RequestDispatcher dispatcherErr=request.getRequestDispatcher("AutenticazioneFallita.html");
+			dispatcherErr.forward(request, response);
+		}
+
+		
 
 	}
 
