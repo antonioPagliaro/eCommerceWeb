@@ -42,6 +42,7 @@ public class Cart {
 		if(user.getProductList().isDisponibile(product)) {
 			user.getProductList().decreaseQuantity(product);
 			productList.add(prodottoAggiunto);
+			//todo : aggiungere un prodotto solo se non esiste ancora nel carrello, altrimenti incrementare la quantità
 
 		}
 		else throw new NonDisponibileException();
