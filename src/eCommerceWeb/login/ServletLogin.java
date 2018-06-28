@@ -47,7 +47,6 @@ public class ServletLogin extends HttpServlet {
 		PrintWriter pw= response.getWriter();
 		pw.print(u);
 		} catch (LoginException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
