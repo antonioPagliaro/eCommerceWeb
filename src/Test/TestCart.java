@@ -39,31 +39,31 @@ public class TestCart {
 
 
 
-//		System.out.println("Totale prezzo ="+cart.getTotalAmount());
-//		System.out.println("Carrello utente "+u.getCart().getProductList());
-//		//		
-//		System.out.println("elenco generale 2");
-//		//
-//		pl.showAll();
-//
-//
-//		cart.removeProduct(p);
-//		System.out.println("Carrello utente "+u.getCart().getProductList());
-//		pl.showAll();
-//
-//
-//		cart.addPezzo(p3);
-//		System.out.println("Carrello utente "+u.getCart().getProductList());
-//		pl.showAll();
-//
-//
-//
-//		cart.removePezzo(p3);
-//		System.out.println("Carrello utente "+u.getCart().getProductList());
-//		pl.showAll();
-//		
-//		
-//
+		System.out.println("Totale prezzo ="+cart.getTotalAmount());
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		//		
+		System.out.println("elenco generale 2");
+		//
+		pl.showAll();
+
+
+		cart.removeProduct(p);
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		pl.showAll();
+
+
+		cart.addPezzo(p3);
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		pl.showAll();
+
+
+
+		cart.removePezzo(p3);
+		System.out.println("Carrello utente "+u.getCart().getProductList());
+		pl.showAll();
+		
+		
+
 
 		System.out.println("Totale prezzo ="+cart.getTotalAmount());
 		System.out.println("Carrello utente "+u.getCart().getProductList());

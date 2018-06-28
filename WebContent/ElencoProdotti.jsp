@@ -36,6 +36,12 @@
 			 <td><button type="submit" name="code" value="<%=q.getCode()%>">Aggiungi al carrello</button></td>
 			</tr>
 		<%}%> 
-</table></form>
+</table>
+
+</form>
+
+
+
+
 </body>
 </html>
