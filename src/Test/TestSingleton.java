@@ -2,7 +2,7 @@ package Test;
 import eCommerce.*;
 
 public class TestSingleton {
-	public static void main(String[] args) throws DecreaseQuantityException {
+	public static void main(String[] args) throws DecreaseQuantityException, NonDisponibileException {
 		ProductList pl= new ProductList();
 		Account a=new Account(20.0);
 		User u= new User("aaa", "b", "c,", "d",a);
