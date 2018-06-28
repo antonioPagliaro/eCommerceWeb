@@ -37,11 +37,10 @@
 			</tr>
 		<%}%> 
 </table>
-
 </form>
-
-
-
-
+<FONT SIZE="2">PEZZI NEL CARRELLO <%=u.getCart().getProductList().size() %></FONT><br>
+<form action="Carrello.jsp" method="post">
+<button type="submit" name="carrello">Vai al carrello</button>
+</form>
 </body>
 </html>
