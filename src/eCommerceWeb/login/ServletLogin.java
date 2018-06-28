@@ -3,6 +3,8 @@ package eCommerceWeb.login;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,18 +40,34 @@ public class ServletLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ServletContext context = request.getSession().getServletContext();
 		Login login=new Login();
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
+		User user=null;
 		try {
-		User u=	login.signIn(username,password);
-		response.setContentType("text/html");
-		PrintWriter pw= response.getWriter();
-		pw.print(u);
+		 user=	login.signIn(username,password);
+		context.setAttribute("user", user);
+//		response.setContentType("text/html");
+//		PrintWriter pw= response.getWriter();
+//		pw.print(user);
 		} catch (LoginException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		if(user!=null) {
+			
+			RequestDispatcher dispatcher=request.getRequestDispatcher("ElencoProdotti.jsp");
+			dispatcher.forward(request, response);
+			}
+		else{
+			RequestDispatcher dispatcherErr=request.getRequestDispatcher("AutenticazioneFallita.html");
+			dispatcherErr.forward(request, response);
+		}
+
+		
 
 	}
 
